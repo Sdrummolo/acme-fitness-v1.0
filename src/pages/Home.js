@@ -1,0 +1,70 @@
+import React, { useEffect, useContext } from "react";
+import { AppContext } from "../components/AppContext";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import { Container, Typography, Button } from "@material-ui/core";
+
+import Pie from "../components/Pie";
+import TodayFoodList from "../components/TodayFoodList";
+
+const useStyles = makeStyles((theme) => ({
+  caloricGoalContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#f6f6f6",
+    borderRadius: "20px",
+    padding: "10px 5px",
+  },
+  header: {
+    fontSize: "40px",
+    marginBottom: "10px",
+  },
+  caloricGoal: {
+    fontSize: "16px",
+    color: theme.palette.primary.dark,
+  },
+  eatSomething: {
+    width: "100%",
+    padding: "8px 0",
+    marginBottom: "20px",
+    color: "#fff",
+    backgroundColor: theme.palette.primary.light,
+  },
+}));
+
+const Home = () => {
+  const { changePage, totCalories, caloricGoal, setCurrPage } = useContext(
+    AppContext
+  );
+  const classes = useStyles();
+
+  // Update Navbar title
+  useEffect(() => {
+    setCurrPage("Home");
+  });
+
+  return (
+    <Container>
+      <Typography variant="h3" className={classes.header}>
+        Today
+      </Typography>
+      <div className={classes.caloricGoalContainer}>
+        <Typography variant="h6" className={classes.caloricGoal}>
+          Caloric Goal:
+        </Typography>
+        <Typography variant="h4">0/2000</Typography>
+      </div>
+      <Pie />
+      <Link to="/search-food" className={classes.link}>
+        <Button variant="contained" className={classes.eatSomething}>
+          Eat Something
+        </Button>
+      </Link>
+      <Typography variant="h6">Today's Food</Typography>
+      <TodayFoodList />
+    </Container>
+  );
+};
+
+export default Home;
