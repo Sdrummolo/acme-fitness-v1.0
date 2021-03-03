@@ -26,7 +26,7 @@ const Navbar = ({ toggleDrawer }) => {
   return (
     <AppBar position="sticky" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        {useLocation().pathname == "/search-food/1" ? ( // Will have to find a way to make the url dynamic
+        {useLocation().pathname == "/search-food/:id" ? (
           <Link to="/search-food">
             <ArrowBackIosIcon className={classes.white} />
           </Link>
