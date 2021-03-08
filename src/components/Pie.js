@@ -4,8 +4,10 @@ import { ResponsivePie } from "@nivo/pie";
 
 const useStyles = makeStyles({
   pieContainer: {
-    height: "350px",
+    height: "300px",
     width: "350px",
+    margin: "auto",
+    marginBottom: "30px",
   },
 });
 
@@ -41,7 +43,7 @@ const Pie = () => {
     <div className={classes.pieContainer}>
       <ResponsivePie
         data={pieData}
-        margin={{ top: 40, right: 20, bottom: 80, left: 20 }}
+        margin={{ top: 20, right: 20, bottom: 70, left: 20 }}
         padAngle={0.7}
         cornerRadius={3}
         colors={pieColors}

@@ -28,7 +28,9 @@ const Navbar = ({ toggleDrawer }) => {
       <Toolbar className={classes.toolbar}>
         {useLocation().pathname == "/search-food/1" ? (
           <Link to="/search-food">
-            <ArrowBackIosIcon className={classes.white} />
+            <IconButton edge="start">
+              <ArrowBackIosIcon className={classes.white} />
+            </IconButton>
           </Link>
         ) : null}
         <Typography variant="h6" edge="center" className={classes.white}>

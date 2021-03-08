@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "8px 0",
     marginBottom: "20px",
     color: "#fff",
-    backgroundColor: theme.palette.primary.light,
   },
   tableContainer: {
     marginBottom: "30px",
@@ -93,6 +92,7 @@ const Food = () => {
 
       <Button
         variant="contained"
+        color="primary"
         onClick={handleDialog}
         className={classes.eatBtn}
       >
@@ -102,22 +102,23 @@ const Food = () => {
       <Dialog open={openDialog} onClose={handleDialog}>
         <DialogTitle>Enter Quantity</DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            fullWidth
-            placeholder="g"
-            type="number"
-            onChange={handleChange}
-            value={quantity}
-          />
-          <DialogActions>
-            <Button onClick={handleDialog} color="primary">
-              Cancel
-            </Button>
-            <Button type="submit" onClick={handleSubmit}>
-              Ok
-            </Button>
-          </DialogActions>
+          <form onSubmit={handleSubmit}>
+            <TextField
+              autoFocus
+              fullWidth
+              required
+              placeholder="g"
+              type="number"
+              onChange={handleChange}
+              value={quantity}
+            />
+            <DialogActions>
+              <Button onClick={handleDialog}>Cancel</Button>
+              <Button type="submit" color="primary">
+                Ok
+              </Button>
+            </DialogActions>
+          </form>
         </DialogContent>
       </Dialog>
     </Container>

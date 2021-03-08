@@ -19,7 +19,7 @@ const App = () => {
   const { isAuthenticated } = useContext(AppContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleDrawer = () => {
+  const toggleDrawer = (state) => {
     setMenuOpen(!menuOpen);
   };
 

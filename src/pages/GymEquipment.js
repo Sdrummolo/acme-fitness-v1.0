@@ -1,14 +1,51 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AppContext } from "../components/AppContext";
+import { makeStyles } from "@material-ui/core/styles";
+import { Tab, Tabs, Container, Paper } from "@material-ui/core";
+import Cardiovascular from "./Cardiovascular";
+import Strength from "./Strength";
+
+const useStyles = makeStyles((theme) => ({
+  tabsContainer: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "30px",
+  },
+  tab: {
+    textTransform: "uppercase",
+  },
+}));
 
 const GymEquipment = () => {
   const { setCurrPage } = useContext(AppContext);
+  const [currTab, setCurrTab] = useState(0); // 0 for cardio, 1 for strength
+
+  const handleChange = (e, newTab) => {
+    setCurrTab(newTab);
+  };
+
+  const classes = useStyles();
 
   // Update Navbar title
   useEffect(() => {
     setCurrPage("Gym Equipment");
   });
-  return "Gym Equipment";
+
+  return (
+    <Container>
+      <div className={classes.tabsContainer}>
+        <Tabs
+          value={currTab}
+          onChange={handleChange}
+          indicatorColor="secondary"
+        >
+          <Tab label="Cardio" className={classes.tab} />
+          <Tab label="Strength" className={classes.tab} />
+        </Tabs>
+      </div>
+      {currTab == "0" ? <Cardiovascular /> : <Strength />}
+    </Container>
+  );
 };
 
 export default GymEquipment;

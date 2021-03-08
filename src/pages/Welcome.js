@@ -66,7 +66,7 @@ const Welcome = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  // Handles submi
+  // Handles submit
   const handleSubmit = (e) => {
     e.preventDefault();
     handleDialog();

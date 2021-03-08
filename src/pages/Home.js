@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "8px 0",
     marginBottom: "20px",
     color: "#fff",
-    backgroundColor: theme.palette.primary.light,
   },
 }));
 
@@ -57,7 +56,11 @@ const Home = () => {
       </div>
       <Pie />
       <Link to="/search-food" className={classes.link}>
-        <Button variant="contained" className={classes.eatSomething}>
+        <Button
+          variant="contained"
+          className={classes.eatSomething}
+          color="primary"
+        >
           Eat Something
         </Button>
       </Link>

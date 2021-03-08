@@ -195,7 +195,10 @@ const SearchFood = () => {
         >
           <ListItem button>
             <ListItemText>cookie</ListItemText>
-            <ArrowForwardIosIcon style={{ fontSize: "small" }} edge="end" />
+            <ArrowForwardIosIcon
+              style={{ fontSize: "small", color: "#000" }}
+              edge="end"
+            />
           </ListItem>
         </Link>
       </List>

@@ -41,21 +41,27 @@ const TodayFoodList = () => {
         <ListItemText className={classes.title}>Description</ListItemText>
         <ListItemText className={classes.quantity}>0g</ListItemText>
         <ListItemText className={classes.calories}>0Kcal</ListItemText>
-        <DeleteIcon color="secondary" />
+        <IconButton size="small" edge="end">
+          <DeleteIcon color="secondary" />
+        </IconButton>
       </ListItem>
       <Divider />
       <ListItem className={classes.listItem}>
         <ListItemText className={classes.title}>Description</ListItemText>
         <ListItemText className={classes.quantity}>0g</ListItemText>
         <ListItemText className={classes.calories}>0Kcal</ListItemText>
-        <DeleteIcon color="secondary" />
+        <IconButton size="small" edge="end">
+          <DeleteIcon color="secondary" />
+        </IconButton>
       </ListItem>
       <Divider />
       <ListItem className={classes.listItem}>
         <ListItemText className={classes.title}>Description</ListItemText>
         <ListItemText className={classes.quantity}>0g</ListItemText>
         <ListItemText className={classes.calories}>0Kcal</ListItemText>
-        <DeleteIcon color="secondary" />
+        <IconButton size="small" edge="end">
+          <DeleteIcon color="secondary" />
+        </IconButton>
       </ListItem>
     </List>
   );
