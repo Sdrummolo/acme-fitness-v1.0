@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AppContext } from "../components/AppContext";
 import { makeStyles } from "@material-ui/core/styles";
-import { Tab, Tabs, Container, Paper } from "@material-ui/core";
+import { Tab, Tabs, Container } from "@material-ui/core";
 import Cardiovascular from "./Cardiovascular";
 import Strength from "./Strength";
 
@@ -43,7 +43,7 @@ const GymEquipment = () => {
           <Tab label="Strength" className={classes.tab} />
         </Tabs>
       </div>
-      {currTab == "0" ? <Cardiovascular /> : <Strength />}
+      {currTab === "0" ? <Cardiovascular /> : <Strength />}
     </Container>
   );
 };

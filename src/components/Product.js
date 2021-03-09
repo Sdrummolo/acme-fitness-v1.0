@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
-  CardActionArea,
   CardMedia,
   CardContent,
   Typography,
@@ -56,7 +55,12 @@ const Product = () => {
           readOnly
           className={classes.rating}
         />
-        <a target="_blank" href="#" className={classes.viewDetails}>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="#"
+          className={classes.viewDetails}
+        >
           <Button variant="contained" color="primary">
             View Details
           </Button>

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   caloricGoal: {
     fontSize: "16px",
-    color: theme.palette.primary.dark,
+    // color: theme.palette.primary.dark,
   },
   eatSomething: {
     width: "100%",
@@ -33,9 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
-  const { changePage, totCalories, caloricGoal, setCurrPage } = useContext(
-    AppContext
-  );
+  const { caloricGoal, setCurrPage, consumedCalories } = useContext(AppContext);
   const classes = useStyles();
 
   // Update Navbar title
@@ -52,7 +50,9 @@ const Home = () => {
         <Typography variant="h6" className={classes.caloricGoal}>
           Caloric Goal:
         </Typography>
-        <Typography variant="h4">0/2000</Typography>
+        <Typography variant="h4">
+          {Math.round(consumedCalories)}/{Math.round(caloricGoal)}
+        </Typography>
       </div>
       <Pie />
       <Link to="/search-food" className={classes.link}>

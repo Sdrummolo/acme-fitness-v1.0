@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { AppContext } from "./AppContext";
 import {
   Dialog,
   DialogTitle,
@@ -9,6 +11,21 @@ import {
 } from "@material-ui/core";
 
 const ResetDialog = ({ isOpen, handleState }) => {
+  const { setUserData, setIsAuthenticated } = useContext(AppContext);
+  const history = useHistory();
+
+  const handleReset = () => {
+    setUserData({
+      age: null,
+      sex: null,
+      weight: null,
+      height: null,
+      activity: null,
+    });
+    setIsAuthenticated(false);
+    history.push("/welcome");
+  };
+
   return (
     <Dialog
       open={isOpen}
@@ -24,7 +41,7 @@ const ResetDialog = ({ isOpen, handleState }) => {
         </DialogContentText>
         <DialogActions>
           <Button onClick={handleState}>Cancel</Button>
-          <Button color="secondary" onClick={handleState}>
+          <Button color="secondary" onClick={handleReset}>
             Ok
           </Button>
         </DialogActions>

@@ -35,8 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Food = () => {
-  const { setCurrPage } = useContext(AppContext);
-
+  const { setCurrPage, addItem } = useContext(AppContext);
   const [openDialog, setOpenDialog] = useState(false);
   const [quantity, setQuantity] = useState(null);
   const data = useLocation().state;
@@ -45,10 +44,7 @@ const Food = () => {
 
   // Update Navbar title capitalizing the first letter
   useEffect(() => {
-    setCurrPage(
-      data.lowercaseDescription.charAt(0).toUpperCase() +
-        data.lowercaseDescription.slice(1)
-    );
+    setCurrPage(data.lowercaseDescription);
   });
 
   const handleDialog = () => {
@@ -61,6 +57,7 @@ const Food = () => {
 
   const handleSubmit = () => {
     handleDialog(); // Close modal
+    addItem({ data: data, quantity: quantity }); // Update list
     history.push("/"); // Redirect to Home
   };
 
@@ -114,7 +111,7 @@ const Food = () => {
             />
             <DialogActions>
               <Button onClick={handleDialog}>Cancel</Button>
-              <Button type="submit" color="primary">
+              <Button type="submit" color="primary" onClick={handleSubmit}>
                 Ok
               </Button>
             </DialogActions>

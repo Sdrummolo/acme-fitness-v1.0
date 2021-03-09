@@ -7,8 +7,6 @@ import {
   Divider,
 } from "@material-ui/core";
 
-import { makeStyles } from "@material-ui/core/styles";
-
 import instructor from "../img/instructor.png";
 
 const Instructor = () => {

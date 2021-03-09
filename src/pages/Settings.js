@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Settings = () => {
-  const { setCurrPage } = useContext(AppContext);
+  const { setCurrPage, setUserData } = useContext(AppContext);
   const [values, setValues] = useState({
     age: null,
     sex: null,
@@ -51,8 +51,9 @@ const Settings = () => {
     height: null,
     activity: null,
   });
-  const [infoDialogState, setInfoDialogState] = useState(false);
-  const [resetDialogState, setResetDialogState] = useState(false);
+  const [openInfoDialog, setInfoDialogState] = useState(false);
+  const [openResetDialog, setResetDialogState] = useState(false);
+  const classes = useStyles();
 
   // Handles form state
   const handleChange = (e) => {
@@ -62,18 +63,23 @@ const Settings = () => {
   // Handles form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    setUserData({
+      age: Number(values.age),
+      sex: values.sex,
+      weight: Number(values.weight),
+      height: Number(values.height),
+      activity: values.activity,
+    });
     setInfoDialogState(true);
   };
 
   const handleInfoDialog = () => {
-    setInfoDialogState(!infoDialogState);
+    setInfoDialogState(!openInfoDialog);
   };
 
   const handleResetDialog = () => {
-    setResetDialogState(!resetDialogState);
+    setResetDialogState(!openResetDialog);
   };
-
-  const classes = useStyles();
 
   // Update Navbar title
   useEffect(() => {
@@ -162,7 +168,7 @@ const Settings = () => {
           </MenuItem>
         </TextField>
         <Button
-          type="submit"
+          type="mubmit"
           variant="contained"
           color="primary"
           className={classes.submit}
@@ -173,7 +179,11 @@ const Settings = () => {
 
       <List>
         <Divider />
-        <a target="_blank" href="https://www.acmefitness.com/about-us">
+        <a
+          target="_blank"
+          href="https://www.acmefitness.com/about-us"
+          rel="noopener noreferrer"
+        >
           <ListItem button>
             <ListItemText>About Us</ListItemText>
             <ListItemIcon>
@@ -191,14 +201,14 @@ const Settings = () => {
         variant="contained"
         className={classes.resetBtn}
         color="secondary"
-        onClick={() => handleResetDialog()}
+        onClick={handleResetDialog}
       >
         Reset App
       </Button>
 
       {/* Dialogs */}
-      <InfoDialog isOpen={infoDialogState} handleState={handleInfoDialog} />
-      <ResetDialog isOpen={resetDialogState} handleState={handleResetDialog} />
+      <InfoDialog isOpen={openInfoDialog} handleState={handleInfoDialog} />
+      <ResetDialog isOpen={openResetDialog} handleState={handleResetDialog} />
     </Container>
   );
 };

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { AppContext } from "../components/AppContext";
+import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -28,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Menu = ({ toggleDrawer, menuOpen }) => {
   const classes = useStyles();
-  const { setCurrPage } = useContext(AppContext);
 
   return (
     <Drawer
@@ -40,8 +38,8 @@ const Menu = ({ toggleDrawer, menuOpen }) => {
       ModalProps={{ onBackdropClick: toggleDrawer }}
     >
       <div style={{ marginBottom: "50px" }}>
-        <a target="_blank" href="https://www.acmefitness.com/">
-          <img src={logo} />
+        <a target="_blank" rel="noreferrer" href="https://www.acmefitness.com/">
+          <img src={logo} alt="ACME Fitness" />
         </a>
       </div>
       <List>

@@ -14,6 +14,12 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
+  title: {
+    color: "#fff",
+    "&:first-letter": {
+      textTransform: "capitalize",
+    },
+  },
   white: {
     color: "#fff",
   },
@@ -26,14 +32,14 @@ const Navbar = ({ toggleDrawer }) => {
   return (
     <AppBar position="sticky" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        {useLocation().pathname == "/search-food/1" ? (
+        {useLocation().pathname === `/search-food/` ? (
           <Link to="/search-food">
             <IconButton edge="start">
               <ArrowBackIosIcon className={classes.white} />
             </IconButton>
           </Link>
         ) : null}
-        <Typography variant="h6" edge="center" className={classes.white}>
+        <Typography variant="h6" edge="center" className={classes.title}>
           {currPage}
         </Typography>
         <IconButton edge="end" onClick={toggleDrawer} className={classes.white}>

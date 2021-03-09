@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../components/AppContext";
+import { AppContext } from "./AppContext";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   List,
@@ -20,6 +20,9 @@ const useStyles = makeStyles({
   },
   title: {
     width: "45%",
+    "&:first-letter": {
+      textTransform: "capitalize",
+    },
   },
   quantity: {
     width: "15%",
@@ -33,38 +36,38 @@ const useStyles = makeStyles({
 });
 
 const TodayFoodList = () => {
+  const { listData, removeItem } = useContext(AppContext);
   const classes = useStyles();
 
-  return (
-    <List dense={true} className={classes.list}>
-      <ListItem className={classes.listItem}>
-        <ListItemText className={classes.title}>Description</ListItemText>
-        <ListItemText className={classes.quantity}>0g</ListItemText>
-        <ListItemText className={classes.calories}>0Kcal</ListItemText>
-        <IconButton size="small" edge="end">
-          <DeleteIcon color="secondary" />
+  const items = listData.map((item, key) => {
+    // Find Energy per 1g of the item and multiply by quantity
+    let totCalories = 0;
+    for (const n in item.data.foodNutrients) {
+      if (item.data.foodNutrients[n].nutrientId == 1008) {
+        totCalories = Math.round(
+          (item.data.foodNutrients[n].value / 100) * item.quantity
+        );
+      }
+    }
+    return (
+      <ListItem key={key} className={classes.listItem}>
+        <ListItemText className={classes.title}>
+          {item.data.lowercaseDescription}
+        </ListItemText>
+        <ListItemText className={classes.quantity}>
+          {item.quantity}g
+        </ListItemText>
+        <ListItemText className={classes.calories}>
+          {totCalories}Kcal
+        </ListItemText>
+        <IconButton edge="end" onClick={() => removeItem(key)}>
+          <DeleteIcon />
         </IconButton>
       </ListItem>
-      <Divider />
-      <ListItem className={classes.listItem}>
-        <ListItemText className={classes.title}>Description</ListItemText>
-        <ListItemText className={classes.quantity}>0g</ListItemText>
-        <ListItemText className={classes.calories}>0Kcal</ListItemText>
-        <IconButton size="small" edge="end">
-          <DeleteIcon color="secondary" />
-        </IconButton>
-      </ListItem>
-      <Divider />
-      <ListItem className={classes.listItem}>
-        <ListItemText className={classes.title}>Description</ListItemText>
-        <ListItemText className={classes.quantity}>0g</ListItemText>
-        <ListItemText className={classes.calories}>0Kcal</ListItemText>
-        <IconButton size="small" edge="end">
-          <DeleteIcon color="secondary" />
-        </IconButton>
-      </ListItem>
-    </List>
-  );
+    );
+  });
+
+  return <List dense={true}>{items}</List>;
 };
 
 export default TodayFoodList;

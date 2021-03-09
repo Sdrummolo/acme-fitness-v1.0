@@ -1,9 +1,15 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../components/AppContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../components/theme";
 
+import ProtectedRoute from "../components/ProtectedRoute";
 import Navbar from "../components/Navbar";
 import Menu from "../components/Menu";
 import Welcome from "./Welcome";
@@ -34,14 +40,53 @@ const App = () => {
           </>
         ) : null}
         <Switch>
-          <Route exact path="/welcome" component={Welcome} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/search-food" component={SearchFood} />
-          <Route exact path="/search-food/:id" component={Food} />
-          <Route exact path="/statistics" component={Statistics} />
-          <Route exact path="/gym-equipment" component={GymEquipment} />
-          <Route exact path="/our-instructors" component={OurInstructors} />
-          <Route exact path="/settings" component={Settings} />
+          <Route
+            exact
+            path="/welcome"
+            render={() => (isAuthenticated ? <Redirect to="/" /> : <Welcome />)} // Redirect to Home if user is Logged In
+          />
+          <ProtectedRoute
+            exact
+            path="/"
+            component={Home}
+            isAuthenticated={isAuthenticated}
+          />
+          <ProtectedRoute
+            exact
+            path="/search-food"
+            component={SearchFood}
+            isAuthenticated={isAuthenticated}
+          />
+          <ProtectedRoute
+            exact
+            path="/search-food/:id"
+            component={Food}
+            isAuthenticated={isAuthenticated}
+          />
+          <ProtectedRoute
+            exact
+            path="/statistics"
+            component={Statistics}
+            isAuthenticated={isAuthenticated}
+          />
+          <ProtectedRoute
+            exact
+            path="/gym-equipment"
+            component={GymEquipment}
+            isAuthenticated={isAuthenticated}
+          />
+          <ProtectedRoute
+            exact
+            path="/our-instructors"
+            component={OurInstructors}
+            isAuthenticated={isAuthenticated}
+          />
+          <ProtectedRoute
+            exact
+            path="/settings"
+            component={Settings}
+            isAuthenticated={isAuthenticated}
+          />
         </Switch>
       </Router>
     </ThemeProvider>
