@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Food = () => {
-  const { setCurrPage, addItem } = useContext(AppContext);
+  const { setCurrPage, addItem, showBackBtn } = useContext(AppContext);
   const [openDialog, setOpenDialog] = useState(false);
   const [quantity, setQuantity] = useState(null);
   const data = useLocation().state;

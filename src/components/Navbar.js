@@ -32,7 +32,7 @@ const Navbar = ({ toggleDrawer }) => {
   return (
     <AppBar position="sticky" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        {useLocation().pathname === `/search-food/` ? (
+        {useLocation().pathname.slice(0, 20) === "/search-food/result/" ? (
           <Link to="/search-food">
             <IconButton edge="start">
               <ArrowBackIosIcon className={classes.white} />

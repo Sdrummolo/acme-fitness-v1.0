@@ -78,7 +78,10 @@ const SearchFood = () => {
         {results.map((item, i) => {
           return (
             <Link
-              to={{ pathname: `/search-food/${item.fdcId}`, state: item }}
+              to={{
+                pathname: `/search-food/result/${item.fdcId}`,
+                state: item,
+              }}
               key={item.fdcId}
             >
               <ListItem button>

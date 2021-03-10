@@ -20,6 +20,7 @@ import GymEquipment from "./GymEquipment";
 import OurInstructors from "./OurInstructors";
 import Settings from "./Settings";
 import Food from "./Food";
+import NotFound from "./NotFound";
 
 const App = () => {
   const { isAuthenticated } = useContext(AppContext);
@@ -59,7 +60,7 @@ const App = () => {
           />
           <ProtectedRoute
             exact
-            path="/search-food/:id"
+            path="/search-food/result/:id"
             component={Food}
             isAuthenticated={isAuthenticated}
           />
@@ -87,6 +88,7 @@ const App = () => {
             component={Settings}
             isAuthenticated={isAuthenticated}
           />
+          <Route path="/" component={NotFound} />
         </Switch>
       </Router>
     </ThemeProvider>
