@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/acme-fitness-v1.0/static/css/main.76b19665.chunk.css",
-    "main.js": "/acme-fitness-v1.0/static/js/main.46f7fc38.chunk.js",
-    "main.js.map": "/acme-fitness-v1.0/static/js/main.46f7fc38.chunk.js.map",
+    "main.css": "/acme-fitness-v1.0/static/css/main.d0986f3d.chunk.css",
+    "main.js": "/acme-fitness-v1.0/static/js/main.5eae7a6b.chunk.js",
+    "main.js.map": "/acme-fitness-v1.0/static/js/main.5eae7a6b.chunk.js.map",
     "runtime-main.js": "/acme-fitness-v1.0/static/js/runtime-main.8ef6f750.js",
     "runtime-main.js.map": "/acme-fitness-v1.0/static/js/runtime-main.8ef6f750.js.map",
-    "static/js/2.2c190a91.chunk.js": "/acme-fitness-v1.0/static/js/2.2c190a91.chunk.js",
-    "static/js/2.2c190a91.chunk.js.map": "/acme-fitness-v1.0/static/js/2.2c190a91.chunk.js.map",
+    "static/js/2.50ac2d4f.chunk.js": "/acme-fitness-v1.0/static/js/2.50ac2d4f.chunk.js",
+    "static/js/2.50ac2d4f.chunk.js.map": "/acme-fitness-v1.0/static/js/2.50ac2d4f.chunk.js.map",
     "index.html": "/acme-fitness-v1.0/index.html",
-    "static/css/main.76b19665.chunk.css.map": "/acme-fitness-v1.0/static/css/main.76b19665.chunk.css.map",
-    "static/js/2.2c190a91.chunk.js.LICENSE.txt": "/acme-fitness-v1.0/static/js/2.2c190a91.chunk.js.LICENSE.txt",
+    "static/css/main.d0986f3d.chunk.css.map": "/acme-fitness-v1.0/static/css/main.d0986f3d.chunk.css.map",
+    "static/js/2.50ac2d4f.chunk.js.LICENSE.txt": "/acme-fitness-v1.0/static/js/2.50ac2d4f.chunk.js.LICENSE.txt",
     "static/media/bench.c5b4f941.jpg": "/acme-fitness-v1.0/static/media/bench.c5b4f941.jpg",
     "static/media/instructor.e0218ce5.png": "/acme-fitness-v1.0/static/media/instructor.e0218ce5.png",
     "static/media/treadmill.1d863f39.jpg": "/acme-fitness-v1.0/static/media/treadmill.1d863f39.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.8ef6f750.js",
-    "static/js/2.2c190a91.chunk.js",
-    "static/css/main.76b19665.chunk.css",
-    "static/js/main.46f7fc38.chunk.js"
+    "static/js/2.50ac2d4f.chunk.js",
+    "static/css/main.d0986f3d.chunk.css",
+    "static/js/main.5eae7a6b.chunk.js"
   ]
 }

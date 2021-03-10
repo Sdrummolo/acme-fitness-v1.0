@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AACA,EACE,SAAU,CACV,QAAS,CACT,qBACF,CAEA,EACE,oBACF","file":"main.76b19665.chunk.css","sourcesContent":["/* CSS Reset */\n* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n\na {\n  text-decoration: none;\n}\n"]}

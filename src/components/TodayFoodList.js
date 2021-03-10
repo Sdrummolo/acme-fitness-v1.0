@@ -41,7 +41,6 @@ const TodayFoodList = () => {
   const classes = useStyles();
 
   const items = listData.map((item, key) => {
-    console.log(key);
     // Find Energy per 1g of the item and multiply by quantity
     let totCalories = 0;
     for (const n in item.data.foodNutrients) {
@@ -51,6 +50,7 @@ const TodayFoodList = () => {
         );
       }
     }
+
     return (
       <>
         <ListItem key={key} className={classes.listItem} e>
@@ -73,7 +73,17 @@ const TodayFoodList = () => {
     );
   });
 
-  return <List className={classes.list}>{items}</List>;
+  return (
+    <List className={classes.list}>
+      {listData.length > 0 ? (
+        items
+      ) : (
+        <ListItem>
+          <ListItemText>You haven't eaten any food yet!</ListItemText>
+        </ListItem>
+      )}
+    </List>
+  );
 };
 
 export default TodayFoodList;

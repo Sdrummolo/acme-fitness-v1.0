@@ -74,6 +74,11 @@ const Welcome = () => {
   // Handles submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleDialog();
+  };
+
+  const handleLogin = (e) => {
+    setIsAuthenticated(true);
     setUserData({
       age: Number(values.age),
       sex: values.sex,
@@ -81,8 +86,7 @@ const Welcome = () => {
       height: Number(values.height),
       activity: values.activity,
     });
-    setIsAuthenticated(true);
-    handleDialog();
+    history.push("/");
   };
 
   // Handles dialog state
@@ -203,7 +207,7 @@ const Welcome = () => {
               We will personalize your experience based on your information
             </DialogContentText>
             <DialogActions>
-              <Button onClick={() => history.push("/")}>Ok</Button>
+              <Button onClick={handleLogin}>Ok</Button>
             </DialogActions>
           </DialogContent>
         </Dialog>

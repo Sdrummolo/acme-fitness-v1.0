@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Food = () => {
-  const { setCurrPage, addItem, showBackBtn } = useContext(AppContext);
+  const { setCurrPage, addItem } = useContext(AppContext);
   const [openDialog, setOpenDialog] = useState(false);
   const [quantity, setQuantity] = useState(null);
   const data = useLocation().state;
@@ -62,7 +62,7 @@ const Food = () => {
 
   const handleSubmit = () => {
     handleDialog(); // Close modal
-    addItem({ data: data, quantity: quantity }); // Update list
+    addItem({ data: data, quantity: Number(quantity) }); // Update list
     history.push("/"); // Redirect to Home
   };
 

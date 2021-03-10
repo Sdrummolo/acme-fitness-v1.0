@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [userData, setUserData] = useState({
     age: null,
     sex: null,

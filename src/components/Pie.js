@@ -36,28 +36,31 @@ const Pie = () => {
 
   // Update Pie data
   useEffect(() => {
+    let newState = [...pieData]; // Copy state
+    newState[0].value = 0; // Reset values
+    newState[1].value = 0;
+    newState[2].value = 0;
+
     listData.forEach((item) => {
+      // Sum values in copied state
       for (const n in item.data.foodNutrients) {
         if (item.data.foodNutrients[n].nutrientId === 1003) {
-          let newState = [...pieData];
           newState[0].value += Math.round(
             item.quantity * (item.data.foodNutrients[n].value / 100)
           );
-          setPieData(newState);
         } else if (item.data.foodNutrients[n].nutrientId === 1004) {
           let newState = [...pieData];
           newState[1].value += Math.round(
             item.quantity * (item.data.foodNutrients[n].value / 100)
           );
-          setPieData(newState);
         } else if (item.data.foodNutrients[n].nutrientId === 1005) {
           let newState = [...pieData];
           newState[2].value += Math.round(
             item.quantity * (item.data.foodNutrients[n].value / 100)
           );
-          setPieData(newState);
         }
       }
+      setPieData(newState); // Set state to updated copy
     });
   }, [listData]);
 

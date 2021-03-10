@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px",
   },
   tab: {
-    textTransform: "uppercase",
+    backgroundColor: "#fff",
   },
 }));
 
