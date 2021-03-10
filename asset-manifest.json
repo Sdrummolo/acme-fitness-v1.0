@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/acme-fitness-v1.0/static/css/main.d0986f3d.chunk.css",
-    "main.js": "/acme-fitness-v1.0/static/js/main.5eae7a6b.chunk.js",
-    "main.js.map": "/acme-fitness-v1.0/static/js/main.5eae7a6b.chunk.js.map",
+    "main.js": "/acme-fitness-v1.0/static/js/main.9418a689.chunk.js",
+    "main.js.map": "/acme-fitness-v1.0/static/js/main.9418a689.chunk.js.map",
     "runtime-main.js": "/acme-fitness-v1.0/static/js/runtime-main.8ef6f750.js",
     "runtime-main.js.map": "/acme-fitness-v1.0/static/js/runtime-main.8ef6f750.js.map",
     "static/js/2.50ac2d4f.chunk.js": "/acme-fitness-v1.0/static/js/2.50ac2d4f.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.8ef6f750.js",
     "static/js/2.50ac2d4f.chunk.js",
     "static/css/main.d0986f3d.chunk.css",
-    "static/js/main.5eae7a6b.chunk.js"
+    "static/js/main.9418a689.chunk.js"
   ]
 }
