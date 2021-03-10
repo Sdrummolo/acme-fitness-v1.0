@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         {/* Render navbar if user is authenticated */}
         {isAuthenticated ? (
           <>
