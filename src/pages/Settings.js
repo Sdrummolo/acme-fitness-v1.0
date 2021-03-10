@@ -25,7 +25,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     maxWidth: "80%",
     margin: "auto",
-    marginBottom: "100px",
+    marginBottom: "60px",
+    borderRadius: "10px",
+    backgroundColor: "#fff",
+    padding: "20px",
   },
   formItem: {
     marginBottom: "10px",
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   resetBtn: {
     width: "100%",
-    marginTop: "20px",
+    margin: "20px 0",
   },
 }));
 

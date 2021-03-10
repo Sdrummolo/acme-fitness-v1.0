@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#f6f6f6",
+    backgroundColor: "#fff",
     borderRadius: "20px",
     padding: "10px 5px",
   },
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
   caloricGoal: {
     fontSize: "16px",
-    // color: theme.palette.primary.dark,
   },
   eatSomething: {
     width: "100%",

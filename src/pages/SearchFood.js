@@ -13,6 +13,11 @@ import {
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 const useStyles = makeStyles((theme) => ({
+  resultsContainer: {
+    padding: "10px",
+    borderRadius: "5px",
+    backgroundColor: "#fff",
+  },
   form: {
     marginBottom: "30px",
   },
@@ -74,27 +79,29 @@ const SearchFood = () => {
         </div>
       ) : null}
 
-      <List>
-        {results.map((item, i) => {
-          return (
-            <Link
-              to={{
-                pathname: `/search-food/result/${item.fdcId}`,
-                state: item,
-              }}
-              key={item.fdcId}
-            >
-              <ListItem button>
-                <ListItemText>{item.lowercaseDescription}</ListItemText>
-                <ArrowForwardIosIcon
-                  style={{ fontSize: "small", color: "#333" }}
-                  edge="end"
-                />
-              </ListItem>
-            </Link>
-          );
-        })}
-      </List>
+      {results.length > 0 ? (
+        <List className={classes.resultsContainer}>
+          {results.map((item, i) => {
+            return (
+              <Link
+                to={{
+                  pathname: `/search-food/result/${item.fdcId}`,
+                  state: item,
+                }}
+                key={item.fdcId}
+              >
+                <ListItem button>
+                  <ListItemText>{item.lowercaseDescription}</ListItemText>
+                  <ArrowForwardIosIcon
+                    style={{ fontSize: "small", color: "#333" }}
+                    edge="end"
+                  />
+                </ListItem>
+              </Link>
+            );
+          })}
+        </List>
+      ) : null}
     </Container>
   );
 };

@@ -13,7 +13,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 const useStyles = makeStyles({
   list: {
     borderRadius: "5px",
-    backgroundColor: "#f6f6f6",
+    backgroundColor: "#fff",
     marginBottom: "20px",
   },
   listItem: {

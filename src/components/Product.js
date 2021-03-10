@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     width: "60%",
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#f6f6f6",
+    backgroundColor: "#fff",
   },
   rating: {
     marginTop: "auto",

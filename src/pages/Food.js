@@ -20,6 +20,9 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  description: {
+    marginBottom: "10px",
+  },
   eatBtn: {
     width: "100%",
     padding: "8px 0",
@@ -28,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
   tableContainer: {
     marginBottom: "30px",
+    backgroundColor: "#fff",
+    borderRadius: "5px",
   },
   tableHead: {
     fontWeight: 600,
@@ -63,7 +68,9 @@ const Food = () => {
 
   return (
     <Container>
-      <Typography variant="h5">Values per 100g</Typography>
+      <Typography variant="h5" className={classes.description}>
+        Values per 100g
+      </Typography>
       <TableContainer className={classes.tableContainer}>
         <Table size="small">
           <TableHead>

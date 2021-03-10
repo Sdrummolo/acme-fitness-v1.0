@@ -19,10 +19,6 @@ import logo from "../img/logo.png";
 import Home from "./Home";
 
 const useStyles = makeStyles((theme) => ({
-  bgLayer: {
-    minHeight: "100vh",
-    backgroundColor: "#e6f1f8",
-  },
   logoContainer: {
     width: "100%",
     display: "flex",
@@ -33,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
   },
   heading: {
-    marginTop: "50px",
+    marginTop: "30px",
     textAlign: "center",
     marginBottom: "30px",
   },
@@ -42,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     maxWidth: "80%",
     margin: "auto",
-    backgroundColor: "#f6f6f6",
+    backgroundColor: "#fff",
     borderRadius: "10px",
     padding: "20px",
   },
@@ -98,122 +94,120 @@ const Welcome = () => {
     return <Home />;
   } else {
     return (
-      <div className={classes.bgLayer}>
-        <Container className={classes.container}>
-          <div className={classes.logoContainer}>
-            <img src={logo} alt="ACME Fitness" className={classes.logo} />
-          </div>
-          <Typography variant="h4" className={classes.heading}>
-            Welcome
-          </Typography>
-          <form className={classes.form} onSubmit={handleSubmit}>
-            <TextField
-              type="number"
-              name="age"
-              label="Age"
-              required
-              className={classes.formItem}
-              onChange={handleChange}
-              value={values.age}
-            ></TextField>
-            <TextField
-              select
-              name="sex"
-              label="Sex"
-              required
-              className={classes.formItem}
-              onChange={handleChange}
-              value={values.sex}
-            >
-              <MenuItem key={"male"} value={"Male"}>
-                Male
-              </MenuItem>
-              <MenuItem key={"female"} value={"Female"}>
-                Female
-              </MenuItem>
-            </TextField>
-            <TextField
-              type="number"
-              name="weight"
-              label="Weight"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">Kg</InputAdornment>
-                ),
-              }}
-              className={classes.formItem}
-              required
-              onChange={handleChange}
-              value={values.weight}
-            ></TextField>
-            <TextField
-              type="number"
-              name="height"
-              label="Height"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">Cm</InputAdornment>
-                ),
-              }}
-              className={classes.formItem}
-              required
-              onChange={handleChange}
-              value={values.height}
-            ></TextField>
-            <TextField
-              select
-              label="Activity"
-              name="activity"
-              required
-              className={classes.formItem}
-              onChange={handleChange}
-              value={values.activity}
-            >
-              <MenuItem key={"none"} value={"none"}>
-                Little/no exercise
-              </MenuItem>
-              <MenuItem key={"light"} value={"light"}>
-                Light exercise
-              </MenuItem>
-              <MenuItem key={"moderate"} value={"moderate"}>
-                Moderate exercise (3-5 days/wk)
-              </MenuItem>
-              <MenuItem key={"very active"} value={"very active"}>
-                Very active (6-7 days/wk)
-              </MenuItem>
-              <MenuItem key={"extra active"} value={"extra active"}>
-                Extra active (very active & physical job)
-              </MenuItem>
-            </TextField>
-            <Button
-              type="submit"
-              className={classes.submitBtn}
-              variant="contained"
-              color="primary"
-            >
-              Next
-            </Button>
-          </form>
-
-          {/* Dialog */}
-          <Dialog
-            open={openDialog}
-            onClose={handleDialog}
-            disableBackdropClick
-            disableEscapeKeyDown
+      <Container className={classes.container}>
+        <div className={classes.logoContainer}>
+          <img src={logo} alt="ACME Fitness" className={classes.logo} />
+        </div>
+        <Typography variant="h4" className={classes.heading}>
+          Welcome
+        </Typography>
+        <form className={classes.form} onSubmit={handleSubmit}>
+          <TextField
+            type="number"
+            name="age"
+            label="Age"
+            required
+            className={classes.formItem}
+            onChange={handleChange}
+            value={values.age}
+          ></TextField>
+          <TextField
+            select
+            name="sex"
+            label="Sex"
+            required
+            className={classes.formItem}
+            onChange={handleChange}
+            value={values.sex}
           >
-            <DialogTitle>You're all set!</DialogTitle>
-            <DialogContent>
-              <DialogContentText>
-                We will personalize your experience based on your information
-              </DialogContentText>
-              <DialogActions>
-                <Button onClick={() => history.push("/")}>Ok</Button>
-              </DialogActions>
-            </DialogContent>
-          </Dialog>
-        </Container>
-      </div>
+            <MenuItem key={"male"} value={"Male"}>
+              Male
+            </MenuItem>
+            <MenuItem key={"female"} value={"Female"}>
+              Female
+            </MenuItem>
+          </TextField>
+          <TextField
+            type="number"
+            name="weight"
+            label="Weight"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">Kg</InputAdornment>
+              ),
+            }}
+            className={classes.formItem}
+            required
+            onChange={handleChange}
+            value={values.weight}
+          ></TextField>
+          <TextField
+            type="number"
+            name="height"
+            label="Height"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">Cm</InputAdornment>
+              ),
+            }}
+            className={classes.formItem}
+            required
+            onChange={handleChange}
+            value={values.height}
+          ></TextField>
+          <TextField
+            select
+            label="Activity"
+            name="activity"
+            required
+            className={classes.formItem}
+            onChange={handleChange}
+            value={values.activity}
+          >
+            <MenuItem key={"none"} value={"none"}>
+              Little/no exercise
+            </MenuItem>
+            <MenuItem key={"light"} value={"light"}>
+              Light exercise
+            </MenuItem>
+            <MenuItem key={"moderate"} value={"moderate"}>
+              Moderate exercise (3-5 days/wk)
+            </MenuItem>
+            <MenuItem key={"very active"} value={"very active"}>
+              Very active (6-7 days/wk)
+            </MenuItem>
+            <MenuItem key={"extra active"} value={"extra active"}>
+              Extra active (very active & physical job)
+            </MenuItem>
+          </TextField>
+          <Button
+            type="submit"
+            className={classes.submitBtn}
+            variant="contained"
+            color="primary"
+          >
+            Next
+          </Button>
+        </form>
+
+        {/* Dialog */}
+        <Dialog
+          open={openDialog}
+          onClose={handleDialog}
+          disableBackdropClick
+          disableEscapeKeyDown
+        >
+          <DialogTitle>You're all set!</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              We will personalize your experience based on your information
+            </DialogContentText>
+            <DialogActions>
+              <Button onClick={() => history.push("/")}>Ok</Button>
+            </DialogActions>
+          </DialogContent>
+        </Dialog>
+      </Container>
     );
   }
 };
