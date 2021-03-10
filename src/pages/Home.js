@@ -29,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
     color: "#fff",
   },
+  calorieGreen: {
+    color: "green",
+  },
+  calorieRed: {
+    color: "red",
+  },
 }));
 
 const Home = () => {
@@ -49,7 +55,14 @@ const Home = () => {
         <Typography variant="h6" className={classes.caloricGoal}>
           Caloric Goal:
         </Typography>
-        <Typography variant="h4">
+        <Typography
+          variant="h4"
+          className={
+            consumedCalories <= caloricGoal
+              ? classes.calorieGreen
+              : classes.calorieRed
+          }
+        >
           {Math.round(consumedCalories)}/{Math.round(caloricGoal)}
         </Typography>
       </div>

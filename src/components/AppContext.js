@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userData, setUserData] = useState({
     age: null,
     sex: null,
@@ -72,7 +72,6 @@ export const AppProvider = (props) => {
   // Calculates the daily caloric intake and the BMI when the user data is updated.
   useEffect(() => {
     calcCaloricGoal();
-    calcBMI(userData.weight, userData.height);
   }, [userData]);
 
   // // Add items from listData
@@ -101,7 +100,6 @@ export const AppProvider = (props) => {
     const mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
     const yyyy = date.getFullYear();
     date = mm + "/" + dd + "/" + yyyy;
-
     // Calculate BMI
     BMI = Math.round((weight / height / height) * 10000);
 

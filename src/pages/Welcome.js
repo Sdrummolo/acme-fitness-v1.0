@@ -52,15 +52,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Welcome = () => {
-  const { setUserData, isAuthenticated, setIsAuthenticated } = useContext(
-    AppContext
-  );
+  const {
+    setUserData,
+    isAuthenticated,
+    setIsAuthenticated,
+    calcBMI,
+  } = useContext(AppContext);
   const [values, setValues] = useState({
-    age: "",
-    sex: "",
-    weight: "",
-    height: "",
-    activity: "",
+    age: 20,
+    sex: "male",
+    weight: 80,
+    height: 180,
+    activity: "none",
   });
   const [openDialog, setOpenDialog] = useState(false);
   const classes = useStyles();
@@ -86,6 +89,7 @@ const Welcome = () => {
       height: Number(values.height),
       activity: values.activity,
     });
+    calcBMI(Number(values.weight), Number(values.height));
     history.push("/");
   };
 
@@ -207,7 +211,9 @@ const Welcome = () => {
               We will personalize your experience based on your information
             </DialogContentText>
             <DialogActions>
-              <Button onClick={handleLogin}>Ok</Button>
+              <Button onClick={handleLogin} color="primary">
+                Ok
+              </Button>
             </DialogActions>
           </DialogContent>
         </Dialog>

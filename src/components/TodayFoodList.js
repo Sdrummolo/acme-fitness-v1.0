@@ -34,6 +34,9 @@ const useStyles = makeStyles({
   remove: {
     width: "5%",
   },
+  placeholderText: {
+    textAlign: "center",
+  },
 });
 
 const TodayFoodList = () => {
@@ -79,7 +82,9 @@ const TodayFoodList = () => {
         items
       ) : (
         <ListItem>
-          <ListItemText>You haven't eaten any food yet!</ListItemText>
+          <ListItemText className={classes.placeholderText}>
+            You didn't eat any food yet!
+          </ListItemText>
         </ListItem>
       )}
     </List>

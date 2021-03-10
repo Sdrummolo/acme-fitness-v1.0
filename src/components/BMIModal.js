@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const BMIDialog = ({ isOpen, handleDialog }) => {
-  const { userData, setUserData } = useContext(AppContext);
-  const [weight, setWeight] = useState(null);
-  const [height, setHeight] = useState(null);
+  const { userData, setUserData, calcBMI } = useContext(AppContext);
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
 
   const classes = useStyles();
 
@@ -36,12 +36,16 @@ const BMIDialog = ({ isOpen, handleDialog }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    // Update height and weight values in Context
     let state = { ...userData };
     state.height = height;
     state.weight = weight;
     setUserData(state);
-
+    // Add BMI value
+    calcBMI(weight, height);
+    // Clear inputs
+    setWeight("");
+    setHeight("");
     handleDialog();
   };
 
