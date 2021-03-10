@@ -3,20 +3,25 @@ import React, { createContext, useState, useEffect } from "react";
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userData, setUserData] = useState({
-    age: 20,
-    sex: "male",
-    weight: 70,
-    height: 177,
-    activity: "none",
+    age: null,
+    sex: null,
+    weight: null,
+    height: null,
+    activity: null,
   });
   const [currPage, setCurrPage] = useState(null);
   const [caloricGoal, setCaloricGoal] = useState(null);
-  const [BMI, setBMI] = useState(null);
+  const [BMIData, setBMIData] = useState([
+    {
+      id: "BMI",
+      color: "hsl(327, 70%, 50%)",
+      data: [],
+    },
+  ]);
   const [consumedCalories, setConsumedCalories] = useState(0);
   const [listData, setListData] = useState([]);
-  // const [dayPieData, setDayPieData] = useState([]);
 
   const calcCaloricGoal = () => {
     // Calc BMR (Basal Metabolic Rate)
@@ -55,7 +60,7 @@ export const AppProvider = (props) => {
 
     listData.forEach((item) => {
       for (const n in item.data.foodNutrients) {
-        if (item.data.foodNutrients[n].nutrientId == 1008) {
+        if (item.data.foodNutrients[n].nutrientId === 1008) {
           totCalories +=
             (item.data.foodNutrients[n].value / 100) * item.quantity;
         }
@@ -67,7 +72,7 @@ export const AppProvider = (props) => {
   // Calculates the daily caloric intake and the BMI when the user data is updated.
   useEffect(() => {
     calcCaloricGoal();
-    // calcBMI();
+    calcBMI(userData.weight, userData.height);
   }, [userData]);
 
   // // Add items from listData
@@ -86,8 +91,26 @@ export const AppProvider = (props) => {
     );
   };
 
-  const calcBMI = () => {
-    setBMI((userData.weight / userData.height / userData.height) * 10000);
+  const calcBMI = (weight, height) => {
+    let state = [...BMIData];
+    let date = new Date();
+    let BMI;
+
+    // Extract Date as a string
+    const dd = String(date.getDate()).padStart(2, "0");
+    const mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = date.getFullYear();
+    date = mm + "/" + dd + "/" + yyyy;
+
+    // Calculate BMI
+    BMI = Math.round((weight / height / height) * 10000);
+
+    state[0].data.push({
+      x: date,
+      y: BMI,
+    });
+
+    setBMIData(state);
   };
 
   return (
@@ -97,19 +120,18 @@ export const AppProvider = (props) => {
         currPage: currPage,
         userData: userData,
         listData: listData,
-        // dayPieData: dayPieData,
         consumedCalories: consumedCalories,
         caloricGoal: caloricGoal,
-        // BMI: BMI,
+        BMIData: BMIData,
         setIsAuthenticated: setIsAuthenticated,
         addItem: addItem,
         removeItem: removeItem,
         setUserData: setUserData,
         setCaloricGoal: setCaloricGoal,
-        // setBMI: setBMI,
         setListData: setListData,
         setConsumedCalories: setConsumedCalories,
         setCurrPage: setCurrPage,
+        calcBMI: calcBMI,
       }}
     >
       {props.children}

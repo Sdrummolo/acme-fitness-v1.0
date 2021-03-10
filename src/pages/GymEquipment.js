@@ -43,7 +43,7 @@ const GymEquipment = () => {
           <Tab label="Strength" className={classes.tab} />
         </Tabs>
       </div>
-      {currTab === "0" ? <Cardiovascular /> : <Strength />}
+      {currTab === 0 ? <Cardiovascular /> : <Strength />}
     </Container>
   );
 };

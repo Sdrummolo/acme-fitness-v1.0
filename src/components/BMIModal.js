@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "./AppContext";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Dialog,
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const BMIDialog = ({ isOpen, handleDialog }) => {
+  const { userData, setUserData } = useContext(AppContext);
   const [weight, setWeight] = useState(null);
   const [height, setHeight] = useState(null);
 
@@ -32,7 +34,14 @@ const BMIDialog = ({ isOpen, handleDialog }) => {
     setHeight(Number(e.target.value));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let state = { ...userData };
+    state.height = height;
+    state.weight = weight;
+    setUserData(state);
+
     handleDialog();
   };
 
@@ -51,7 +60,6 @@ const BMIDialog = ({ isOpen, handleDialog }) => {
             value={weight}
           />
           <TextField
-            autoFocus
             fullWidth
             required
             placeholder="Height (Cm)"

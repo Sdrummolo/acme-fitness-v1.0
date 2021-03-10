@@ -1,13 +1,15 @@
 import React from "react";
 import Product from "../components/Product";
+import treadmill from "../img/treadmill.jpg";
 
 const Cardiovascular = () => {
   return (
     <>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      <Product img={treadmill} title="Treadmill" />
+      <Product img={treadmill} title="Treadmill" />
+      <Product img={treadmill} title="Treadmill" />
+      <Product img={treadmill} title="Treadmill" />
+      <Product img={treadmill} title="Treadmill" />
     </>
   );
 };

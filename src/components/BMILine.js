@@ -1,31 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "./AppContext";
 import { makeStyles } from "@material-ui/core/styles";
 import { ResponsiveLine } from "@nivo/line";
-
-const data = [
-  {
-    id: "BMI",
-    color: "hsl(327, 70%, 50%)",
-    data: [
-      {
-        x: "8/2/2021",
-        y: 22,
-      },
-      {
-        x: "18/2/2021",
-        y: 23,
-      },
-      {
-        x: "28/2/2021",
-        y: 21,
-      },
-      {
-        x: "8/3/2021",
-        y: 24,
-      },
-    ],
-  },
-];
 
 const useStyles = makeStyles({
   lineContainer: {
@@ -37,12 +13,13 @@ const useStyles = makeStyles({
 });
 
 const BMILine = () => {
+  const { BMIData } = useContext(AppContext);
   const classes = useStyles();
 
   return (
     <div className={classes.lineContainer}>
       <ResponsiveLine
-        data={data}
+        data={BMIData}
         margin={{ top: 20, right: 35, bottom: 30, left: 35 }}
         xScale={{ type: "point" }}
         yScale={{

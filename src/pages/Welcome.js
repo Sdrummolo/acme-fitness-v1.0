@@ -42,13 +42,9 @@ const useStyles = makeStyles((theme) => ({
   formItem: {
     marginBottom: "10px",
   },
-  submit: {
-    backgroundColor: theme.palette.primary.main,
+  submitBtn: {
     marginTop: "50px",
     color: "#fff",
-    "&:hover": {
-      backgroundColor: theme.palette.primary.main,
-    },
   },
 }));
 
@@ -57,11 +53,11 @@ const Welcome = () => {
     AppContext
   );
   const [values, setValues] = useState({
-    age: null,
-    sex: null,
-    weight: null,
-    height: null,
-    activity: null,
+    age: "",
+    sex: "",
+    weight: "",
+    height: "",
+    activity: "",
   });
   const [openDialog, setOpenDialog] = useState(false);
   const classes = useStyles();
@@ -181,7 +177,12 @@ const Welcome = () => {
               Extra active (very active & physical job)
             </MenuItem>
           </TextField>
-          <Button type="submit" className={classes.submit}>
+          <Button
+            type="submit"
+            className={classes.submitBtn}
+            variant="contained"
+            color="primary"
+          >
             Next
           </Button>
         </form>

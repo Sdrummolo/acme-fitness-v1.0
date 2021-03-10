@@ -17,12 +17,14 @@ import logo from "../img/logo.png";
 
 // Material UI Styles
 const useStyles = makeStyles((theme) => ({
-  drawerPaper: { width: "inherit" },
+  logoContainer: {
+    marginTop: "20px",
+    marginBottom: "50px",
+  },
   link: {
     textDecoration: "none",
     color: theme.palette.text.primary,
   },
-  menuIcon: {},
 }));
 
 const Menu = ({ toggleDrawer, menuOpen }) => {
@@ -34,10 +36,9 @@ const Menu = ({ toggleDrawer, menuOpen }) => {
       variant="temporary"
       anchor="right"
       open={menuOpen}
-      classes={{ paper: classes.drawerPaper }}
       ModalProps={{ onBackdropClick: toggleDrawer }}
     >
-      <div style={{ marginBottom: "50px" }}>
+      <div className={classes.logoContainer}>
         <a target="_blank" rel="noreferrer" href="https://www.acmefitness.com/">
           <img src={logo} alt="ACME Fitness" />
         </a>

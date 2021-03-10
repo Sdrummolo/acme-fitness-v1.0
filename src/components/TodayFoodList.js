@@ -45,7 +45,7 @@ const TodayFoodList = () => {
     // Find Energy per 1g of the item and multiply by quantity
     let totCalories = 0;
     for (const n in item.data.foodNutrients) {
-      if (item.data.foodNutrients[n].nutrientId == 1008) {
+      if (item.data.foodNutrients[n].nutrientId === 1008) {
         totCalories = Math.round(
           (item.data.foodNutrients[n].value / 100) * item.quantity
         );

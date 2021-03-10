@@ -9,8 +9,6 @@ import {
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 
-import treadmill from "../img/treadmill.jpg";
-
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
     marginBottom: "15px",
@@ -36,19 +34,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Product = () => {
+const Product = ({ img, title }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.cardContainer}>
       <CardMedia
-        image={treadmill}
+        image={img}
         title="Treadmill"
         component="img"
         className={classes.img}
       />
       <CardContent className={classes.content}>
-        <Typography variant="h5">Treadmill</Typography>
+        <Typography variant="h5">{title}</Typography>
         <Rating
           name="read-only"
           value="4"
