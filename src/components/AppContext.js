@@ -13,7 +13,7 @@ export const AppProvider = (props) => {
   });
   const [currPage, setCurrPage] = useState(null);
   const [caloricGoal, setCaloricGoal] = useState(null);
-  // const [BMI, setBMI] = useState(null);
+  const [BMI, setBMI] = useState(null);
   const [consumedCalories, setConsumedCalories] = useState(0);
   const [listData, setListData] = useState([]);
   // const [dayPieData, setDayPieData] = useState([]);
@@ -86,9 +86,9 @@ export const AppProvider = (props) => {
     );
   };
 
-  // const calcBMI = () => {
-  //   setBMI((userData.weight / userData.height / userData.height) * 10000);
-  // };
+  const calcBMI = () => {
+    setBMI((userData.weight / userData.height / userData.height) * 10000);
+  };
 
   return (
     <AppContext.Provider
@@ -107,7 +107,7 @@ export const AppProvider = (props) => {
         setUserData: setUserData,
         setCaloricGoal: setCaloricGoal,
         // setBMI: setBMI,
-        // setListData: setListData,
+        setListData: setListData,
         setConsumedCalories: setConsumedCalories,
         setCurrPage: setCurrPage,
       }}

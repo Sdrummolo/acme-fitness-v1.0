@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from "./AppContext";
 import { makeStyles } from "@material-ui/core/styles";
 import { ResponsivePie } from "@nivo/pie";
 
@@ -13,43 +14,65 @@ const useStyles = makeStyles({
 
 const pieColors = ["#E7F69D", "#64C2A6", "#FEAE65", "#F66D43"];
 
-const pieData = [
+const placeholderData = [
   {
-    id: "proteins",
-    label: "Proteins",
-    value: 40,
-  },
-  {
-    id: "carbohydrates",
-    label: "Carbohydrates",
-    value: 30,
-  },
-  {
-    id: "fats",
-    label: "Fats",
-    value: 27,
-  },
-  {
-    id: "vitamins",
-    label: "Vitamins",
-    value: 3,
+    id: "legend",
+    label: "Legend",
+    value: 1,
   },
 ];
 
+const placeholderColor = ["#E7F69D"];
+
 const Pie = () => {
+  const { listData } = useContext(AppContext);
+  const [pieData, setPieData] = useState([
+    // Temporarely handling pie data with state, but I will move the data to a JSON file later
+    { id: "protein", label: "Protein", value: 0 },
+    { id: "fat", label: "Fat", value: 0 },
+    { id: "carbohydrate", label: "Carbohydrate", value: 0 },
+  ]);
   const classes = useStyles();
+
+  // Update Pie data
+  useEffect(() => {
+    listData.forEach((item) => {
+      for (const n in item.data.foodNutrients) {
+        if (item.data.foodNutrients[n].nutrientId === 1003) {
+          let newState = [...pieData];
+          newState[0].value += Math.round(
+            item.quantity * (item.data.foodNutrients[n].value / 100)
+          );
+          setPieData(newState);
+        } else if (item.data.foodNutrients[n].nutrientId === 1004) {
+          let newState = [...pieData];
+          newState[1].value += Math.round(
+            item.quantity * (item.data.foodNutrients[n].value / 100)
+          );
+          setPieData(newState);
+        } else if (item.data.foodNutrients[n].nutrientId === 1005) {
+          let newState = [...pieData];
+          newState[2].value += Math.round(
+            item.quantity * (item.data.foodNutrients[n].value / 100)
+          );
+          setPieData(newState);
+        }
+      }
+    });
+  }, [listData]);
 
   return (
     <div className={classes.pieContainer}>
       <ResponsivePie
-        data={pieData}
+        data={listData.length > 0 ? pieData : placeholderData}
         margin={{ top: 20, right: 20, bottom: 70, left: 20 }}
         padAngle={0.7}
         cornerRadius={3}
-        colors={pieColors}
+        colors={listData.length > 0 ? pieColors : placeholderColor}
         enableRadialLabels={false}
         sliceLabelsSkipAngle={10}
         sliceLabelsTextColor="#333333"
+        isInteractive={true}
         legends={[
           {
             anchor: "bottom",

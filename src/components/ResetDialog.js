@@ -11,7 +11,9 @@ import {
 } from "@material-ui/core";
 
 const ResetDialog = ({ isOpen, handleState }) => {
-  const { setUserData, setIsAuthenticated } = useContext(AppContext);
+  const { setUserData, setIsAuthenticated, setListData } = useContext(
+    AppContext
+  );
   const history = useHistory();
 
   const handleReset = () => {
@@ -22,6 +24,7 @@ const ResetDialog = ({ isOpen, handleState }) => {
       height: null,
       activity: null,
     });
+    setListData([]);
     setIsAuthenticated(false);
     history.push("/welcome");
   };

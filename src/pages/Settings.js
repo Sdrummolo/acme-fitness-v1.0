@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Settings = () => {
-  const { setCurrPage, setUserData } = useContext(AppContext);
+  const { setCurrPage, setUserData, setListData } = useContext(AppContext);
   const [values, setValues] = useState({
     age: null,
     sex: null,

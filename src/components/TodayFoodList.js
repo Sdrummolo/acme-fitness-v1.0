@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   list: {
     borderRadius: "5px",
     backgroundColor: "#f6f6f6",
+    marginBottom: "20px",
   },
   listItem: {
     display: "flex",
@@ -40,6 +41,7 @@ const TodayFoodList = () => {
   const classes = useStyles();
 
   const items = listData.map((item, key) => {
+    console.log(key);
     // Find Energy per 1g of the item and multiply by quantity
     let totCalories = 0;
     for (const n in item.data.foodNutrients) {
@@ -50,24 +52,28 @@ const TodayFoodList = () => {
       }
     }
     return (
-      <ListItem key={key} className={classes.listItem}>
-        <ListItemText className={classes.title}>
-          {item.data.lowercaseDescription}
-        </ListItemText>
-        <ListItemText className={classes.quantity}>
-          {item.quantity}g
-        </ListItemText>
-        <ListItemText className={classes.calories}>
-          {totCalories}Kcal
-        </ListItemText>
-        <IconButton edge="end" onClick={() => removeItem(key)}>
-          <DeleteIcon />
-        </IconButton>
-      </ListItem>
+      <>
+        <ListItem key={key} className={classes.listItem} e>
+          <ListItemText className={classes.title}>
+            {item.data.lowercaseDescription}
+          </ListItemText>
+          <ListItemText className={classes.quantity}>
+            {item.quantity}g
+          </ListItemText>
+          <ListItemText className={classes.calories}>
+            {totCalories}Kcal
+          </ListItemText>
+          <IconButton edge="end" onClick={() => removeItem(key)} size="small">
+            <DeleteIcon color="secondary" j />
+          </IconButton>
+        </ListItem>
+
+        {key < listData.length - 1 ? <Divider /> : null}
+      </>
     );
   });
 
-  return <List dense={true}>{items}</List>;
+  return <List className={classes.list}>{items}</List>;
 };
 
 export default TodayFoodList;
