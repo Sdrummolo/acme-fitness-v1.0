@@ -95,6 +95,7 @@ const Settings = () => {
         <TextField
           type="number"
           label="Age"
+          name="age"
           required
           className={classes.formItem}
           onChange={handleChange}
@@ -103,6 +104,7 @@ const Settings = () => {
         <TextField
           select
           label="Sex"
+          name="sex"
           required
           className={classes.formItem}
           onChange={handleChange}
@@ -118,6 +120,7 @@ const Settings = () => {
         <TextField
           type="number"
           label="Weight"
+          name="weight"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">Kg</InputAdornment>
@@ -131,6 +134,7 @@ const Settings = () => {
         <TextField
           type="number"
           label="Height"
+          name="height"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">Cm</InputAdornment>
@@ -144,6 +148,7 @@ const Settings = () => {
         <TextField
           select
           label="Activity"
+          name="activity"
           required
           className={classes.formItem}
           onChange={handleChange}
