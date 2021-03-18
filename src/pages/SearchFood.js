@@ -45,6 +45,8 @@ const SearchFood = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
       setIsFetching(true);
       const formattedQuery = input.replaceAll(" ", "%20");

@@ -59,11 +59,11 @@ const Welcome = () => {
     calcBMI,
   } = useContext(AppContext);
   const [values, setValues] = useState({
-    age: 20,
-    sex: "male",
-    weight: 80,
-    height: 180,
-    activity: "none",
+    age: "",
+    sex: "",
+    weight: "",
+    height: "",
+    activity: "",
   });
   const [openDialog, setOpenDialog] = useState(false);
   const classes = useStyles();
