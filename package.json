@@ -1,6 +1,6 @@
 {
-  "homepage": "https://sdrummolo.github.io/acme-fitness-v1.0/",
-  "name": "acme-fitness-v1",
+  "homepage": ".",
+  "name": "acme-fitness-v1.0",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "serve": "^11.3.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
